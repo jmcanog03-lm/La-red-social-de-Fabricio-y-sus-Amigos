@@ -1,14 +1,25 @@
 import java.util.HashSet;
+import java.awt.Desktop;
+import java.io.File;
 
 public abstract class Contenido {
     protected int codigoPublicacion;
     protected String fechaPublicacion;
     protected HashSet<Etiquetas> etiquetasPublicacion;
     protected Usuario usuario;
+    protected int contador;
+    protected String texto_contenido;
 
-    public Contenido(int codigoPublicacion, String fechaPublicacion,
+    
+
+    public Contenido() {
+    }
+
+
+    public Contenido( String fechaPublicacion,
             Usuario usuario) {
-        this.codigoPublicacion = codigoPublicacion;
+        this.codigoPublicacion = contador;
+        contador++;
         this.fechaPublicacion = fechaPublicacion;
         this.etiquetasPublicacion = new HashSet<>();
         this.usuario = usuario;

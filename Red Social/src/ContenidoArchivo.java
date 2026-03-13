@@ -1,30 +1,33 @@
 public class ContenidoArchivo extends Contenido {
-    private String tituloArchivo;
+    private Desktop desktop;
 
-
-    private String archivoContenido;
-
-    public ContenidoArchivo(int codigoPublicacion, String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
-        super(codigoPublicacion, fechaPublicacion, usuario);
-        this.archivoContenido = archivo;
-        this.tituloArchivo = titulo;
-    }
-
-    public String getArchivoContenido() {
-        return archivoContenido;
-    }
-
-    public void setArchivoContenido(String archivo) {
-        this.archivoContenido = archivo;
+    public ContenidoArchivo( String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
+       super();
+       super.codigoPublicacion = super.contador;
+       super.contador++;
+       this.rutaArchivo = archivo;
+       this.tituloArchivo = titulo;
     }
 
     public String getTituloArchivo() {
-        return tituloArchivo;
+        return this.tituloArchivo;
     }
 
     public void setTituloArchivo(String tituloArchivo) {
         this.tituloArchivo = tituloArchivo;
     }
+
+    public String getRutaArchivo() {
+        return this.rutaArchivo;
+    }
+
+    public void setRutaArchivo(String rutaArchivo) {
+        this.rutaArchivo = rutaArchivo;
+    }
+
+  
+
+   
 
     @Override
     String mostrarSuperficial() {
@@ -37,7 +40,7 @@ public class ContenidoArchivo extends Contenido {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return super.toString() + " Archivo: " + getArchivoContenido();
+        return super.toString() ;
     }
 
 }

@@ -4,7 +4,9 @@ public class ContenidoMixto extends Contenido {
 
     public ContenidoMixto(int codigoPublicacion, String fechaPublicacion, Usuario usuario, String texto,
             String archivo) {
-        super(codigoPublicacion, fechaPublicacion, usuario);
+        super();
+        super.codigoPublicacion = super.contador;
+        super.contador++;
         this.texto_Mixto = texto;
         this.archivo_mixto = archivo;
     }
