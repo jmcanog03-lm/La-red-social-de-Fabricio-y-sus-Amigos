@@ -2,19 +2,29 @@ import java.util.HashSet;
 
 public class Usuario implements Comparable<Usuario>, Cloneable {
 
-    private int id;
+   private int id;
     private String name_user;
     private String password;
     ///// Algotitmo seleccionado
-    private HashSet<Etiquetas> set;
+    private HashSet<Etiquetas> setEtiqueta;
+
 
     public Usuario(int id, String name_user, String password) {
         this.id = id;
         this.name_user = name_user;
         this.password = password;
-        this.set = new HashSet<>();
+        this.setEtiqueta = new HashSet<>();
 
     }
+
+    public HashSet<Etiquetas> getSetEtiqueta() {
+        return setEtiqueta;
+    }
+
+    public void setSetEtiqueta(HashSet<Etiquetas> setEtiquetas) {
+        this.setEtiqueta = setEtiquetas;
+    }
+
 
     public int getId() {
         return id;
@@ -42,18 +52,18 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
 
 
     public void agregarEtiquetas(Etiquetas etiqueta) {
-     set.add(etiqueta);
+        setEtiqueta.add(etiqueta);
 
-   }
+    }
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 
-        for (Etiquetas etiquetasEach : set) {
+        for (Etiquetas etiquetasEach : setEtiqueta) {
             if (etiquetasEach == etiqueta) {
-                set.remove(etiquetasEach);
-             }
+                setEtiqueta.remove(etiquetasEach);
+            }
         }
-   }
+    }
 
     @Override
     public int compareTo(Usuario o) {
@@ -69,6 +79,12 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
     public String toString() {
         // TODO Auto-generated method stub
         return "Nombre de usuario : " + this.name_user;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        // TODO Auto-generated method stub
+        return super.clone();
     }
 
 }
