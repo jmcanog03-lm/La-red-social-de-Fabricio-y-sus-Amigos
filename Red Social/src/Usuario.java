@@ -6,13 +6,13 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
     private String name_user;
     private String password;
     ///// Algotitmo seleccionado
-   // private HashSet<Etiquetas> set;
+    private HashSet<Etiquetas> set;
 
     public Usuario(int id, String name_user, String password) {
         this.id = id;
         this.name_user = name_user;
         this.password = password;
-     //   this.set = new HashSet<>();
+        this.set = new HashSet<>();
 
     }
 
@@ -41,19 +41,19 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
     }
 
 
- //   public void agregarEtiquetas(Etiquetas etiqueta) {
- //       set.add(etiqueta);
+    public void agregarEtiquetas(Etiquetas etiqueta) {
+     set.add(etiqueta);
 
- //   }
+   }
 
-//    public void eliminarEtiqueta(Etiquetas etiqueta) {
+    public void eliminarEtiqueta(Etiquetas etiqueta) {
 
-    //    for (Etiquetas etiquetasEach : set) {
-    //        if (etiquetasEach == etiqueta) {
-    //            set.remove(etiquetasEach);
-    //         }
-    //    }
-   // }
+        for (Etiquetas etiquetasEach : set) {
+            if (etiquetasEach == etiqueta) {
+                set.remove(etiquetasEach);
+             }
+        }
+   }
 
     @Override
     public int compareTo(Usuario o) {
