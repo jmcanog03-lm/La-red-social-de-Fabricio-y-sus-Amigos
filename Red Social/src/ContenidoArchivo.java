@@ -4,9 +4,9 @@ public class ContenidoArchivo extends Contenido {
 
     private String archivoContenido;
 
-    public ContenidoArchivo(int codigoPublicacion, String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
+    public ContenidoArchivo(int codigoPublicacion, String fechaPublicacion, Usuario usuario, String ruta_archivo, String titulo) {
         super(codigoPublicacion, fechaPublicacion, usuario);
-        this.archivoContenido = archivo;
+        this.archivoContenido = ruta_archivo;
         this.tituloArchivo = titulo;
     }
 
