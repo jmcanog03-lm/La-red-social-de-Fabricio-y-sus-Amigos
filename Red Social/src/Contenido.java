@@ -7,10 +7,12 @@ public abstract class Contenido {
     protected String fechaPublicacion;
     protected HashSet<Etiquetas> etiquetasPublicacion;
     protected Usuario usuario;
-    protected int contador;
+    protected static int contador;
     protected String texto_contenido;
+    protected Desktop desktop;
+    protected String rutaArchivo;
+    protected String tituloContenido;
 
-    
 
     public Contenido() {
     }
@@ -23,6 +25,9 @@ public abstract class Contenido {
         this.fechaPublicacion = fechaPublicacion;
         this.etiquetasPublicacion = new HashSet<>();
         this.usuario = usuario;
+        this.desktop = Desktop.getDesktop();
+        this.tituloContenido = tituloContenido;
+        this.rutaArchivo = rutaArchivo;
     }
 
     abstract String mostrarSuperficial();
@@ -37,6 +42,10 @@ public abstract class Contenido {
 
     protected String getFechaPublicacion() {
         return fechaPublicacion;
+    }
+
+    protected String getTitulo(){
+        return this.tituloContenido;
     }
 
     protected void setFechaPublicacion(String fechaPublicacion) {

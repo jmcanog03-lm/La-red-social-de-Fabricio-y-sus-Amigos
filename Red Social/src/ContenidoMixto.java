@@ -2,13 +2,12 @@ public class ContenidoMixto extends Contenido {
     private String texto_Mixto;
     private String archivo_mixto;
 
-    public ContenidoMixto(int codigoPublicacion, String fechaPublicacion, Usuario usuario, String texto,
-            String archivo) {
-        super();
-        super.codigoPublicacion = super.contador;
-        super.contador++;
+    public ContenidoMixto(String fechaPublicacion, Usuario usuario, String texto,
+            String archivo, String titulo) {
+        super(fechaPublicacion, usuario);
+        this.rutaArchivo = archivo;
+        this.tituloContenido = titulo;
         this.texto_Mixto = texto;
-        this.archivo_mixto = archivo;
     }
 
     public String getTexto_Mixto() {
@@ -29,27 +28,25 @@ public class ContenidoMixto extends Contenido {
 
     @Override
     String mostrarSuperficial() {
-        
+
         if (this.texto_Mixto.length() > 50) {
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < texto_Mixto.length(); i++) {
                 if (i <= 50) {
-                 char caracter = texto_Mixto.charAt(i);
-                 sb.append(caracter);   
+                    char caracter = texto_Mixto.charAt(i);
+                    sb.append(caracter);
                 }
-                
 
             }
 
             String resultado = sb.toString();
-            return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user() + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + resultado;
+            return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user()
+                    + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + resultado;
         }
-        return " ID_Contenido: " + getCodigoPublicacion() +  " Usuario : " + getUsuario().getName_user() + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + getTexto_Mixto();
+        return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user()
+                + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + getTexto_Mixto();
 
-
-
-        
     }
 
     @Override
