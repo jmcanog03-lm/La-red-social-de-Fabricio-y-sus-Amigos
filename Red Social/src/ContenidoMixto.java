@@ -2,6 +2,12 @@ public class ContenidoMixto extends Contenido {
     private String texto_Mixto;
     private String archivo_mixto;
 
+    public  ContenidoMixto(){
+        super();
+        this.texto_Mixto = "";
+        this.rutaArchivo = "";
+        this.tituloContenido = "";
+    }
     public ContenidoMixto(String fechaPublicacion, Usuario usuario, String texto,
             String archivo, String titulo) {
         super(fechaPublicacion, usuario);

@@ -59,6 +59,11 @@ public class GestorContenido {
         Publicaciones.add(contenido);
     }
 
+    public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo, String texto){
+        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo);
+        Publicaciones.add(contenido);
+    }
+
     public String mostrarContenido() {
         StringBuilder sb = new StringBuilder();
 
