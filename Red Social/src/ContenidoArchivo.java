@@ -1,4 +1,5 @@
 import java.awt.Desktop;
+import java.util.Iterator;
 
 public class ContenidoArchivo extends Contenido {
 
@@ -11,7 +12,13 @@ public class ContenidoArchivo extends Contenido {
 
     @Override
     String mostrarSuperficial() {
-        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario() + "Titulo " + getTitulo(); 
+        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario(); 
+    }
+
+    @Override
+    public Iterator<Contenido> iterator() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
     }
 
     

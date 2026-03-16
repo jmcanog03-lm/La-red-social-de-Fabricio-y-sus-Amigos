@@ -6,7 +6,7 @@ public class ContenidoTexto extends Contenido {
 
     
     public ContenidoTexto( String fechaPublicacion, Usuario usuario, String texto) {
-       super();
+       super(fechaPublicacion,usuario);
        super.fechaPublicacion = fechaPublicacion;
        super.usuario = usuario;
        super.texto_contenido = texto;
