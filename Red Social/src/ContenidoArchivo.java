@@ -11,7 +11,7 @@ public class ContenidoArchivo extends Contenido {
 
     @Override
     String mostrarSuperficial() {
-        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario() + "Titulo " + getTitulo(); 
+        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario() + "Titulo " /*+ getTitulo()*/; 
     }
 
     
