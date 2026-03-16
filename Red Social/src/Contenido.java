@@ -1,49 +1,66 @@
 import java.util.HashSet;
+import java.awt.Desktop;
+import java.io.File;
 
 public abstract class Contenido {
     protected int codigoPublicacion;
     protected String fechaPublicacion;
     protected HashSet<Etiquetas> etiquetasPublicacion;
     protected Usuario usuario;
+    protected static int contador;
+    protected String texto_contenido;
+    protected Desktop desktop;
+    protected String rutaArchivo;
+    protected String tituloContenido;
 
-    public Contenido(int codigoPublicacion, String fechaPublicacion,
+
+    public Contenido() {
+    }
+
+
+    public Contenido( String fechaPublicacion,
             Usuario usuario) {
-        this.codigoPublicacion = codigoPublicacion;
+        this.codigoPublicacion = contador;
+        contador++;
         this.fechaPublicacion = fechaPublicacion;
         this.etiquetasPublicacion = new HashSet<>();
         this.usuario = usuario;
+        this.desktop = Desktop.getDesktop();
+        this.tituloContenido = tituloContenido;
+        this.rutaArchivo = rutaArchivo;
     }
 
     abstract String mostrarSuperficial();
 
-    protected int getCodigoPublicacion() {
-        return codigoPublicacion;
+    public int getCodigoPublicacion() {
+        return this.codigoPublicacion;
     }
 
-    protected void setCodigoPublicacion(int codigoPublicacion) {
+    public void setCodigoPublicacion(int codigoPublicacion) {
         this.codigoPublicacion = codigoPublicacion;
     }
 
-    protected String getFechaPublicacion() {
-        return fechaPublicacion;
+    public String getFechaPublicacion() {
+        return this.fechaPublicacion;
     }
 
-    protected void setFechaPublicacion(String fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
+    public HashSet<Etiquetas> getEtiquetasPublicacion() {
+        return this.etiquetasPublicacion;
     }
 
-    protected Usuario getUsuario() {
-        return usuario;
+    public void setEtiquetasPublicacion(HashSet<Etiquetas> etiquetasPublicacion) {
+        this.etiquetasPublicacion = etiquetasPublicacion;
     }
 
-    protected void setUsuario(Usuario usuario) {
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public void agregarEtiquetas(Etiquetas etiqueta) {
-        etiquetasPublicacion.add(etiqueta);
-
-    }
+  
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 
@@ -59,5 +76,7 @@ public abstract class Contenido {
         // TODO Auto-generated method stub
         return " ID_Contenido: " + getCodigoPublicacion() + " Creador de contenido: " + this.usuario.getName_user();
     }
+
+
 
 }
