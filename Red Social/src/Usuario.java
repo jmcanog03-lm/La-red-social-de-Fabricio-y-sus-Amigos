@@ -7,6 +7,7 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
     private String password;
     ///// Algotitmo seleccionado
     private HashSet<Etiquetas> setEtiqueta;
+    private HashSet<Usuario> follow;
 
 
     public Usuario(int id, String name_user, String password) {
@@ -14,7 +15,16 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
         this.name_user = name_user;
         this.password = password;
         this.setEtiqueta = new HashSet<>();
+        this.follow = new HashSet<>();
 
+    }
+
+    public HashSet<Usuario> getFollow() {
+        return follow;
+    }
+
+    public void setFollow(HashSet<Usuario> follow) {
+        this.follow = follow;
     }
 
     public HashSet<Etiquetas> getSetEtiqueta() {
@@ -55,6 +65,12 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
         setEtiqueta.add(etiqueta);
 
     }
+
+    public void agregarUsuario(Usuario usuario){
+        follow.add(usuario);
+    }
+
+    
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 
