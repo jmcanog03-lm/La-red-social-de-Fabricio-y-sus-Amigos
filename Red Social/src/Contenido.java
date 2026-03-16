@@ -16,34 +16,39 @@ public abstract class Contenido {
 
     abstract String mostrarSuperficial();
 
-    protected int getCodigoPublicacion() {
-        return codigoPublicacion;
+    public int getCodigoPublicacion() {
+        return this.codigoPublicacion;
     }
 
-    protected void setCodigoPublicacion(int codigoPublicacion) {
+    public void setCodigoPublicacion(int codigoPublicacion) {
         this.codigoPublicacion = codigoPublicacion;
     }
 
-    protected String getFechaPublicacion() {
-        return fechaPublicacion;
+    public String getFechaPublicacion() {
+        return this.fechaPublicacion;
     }
 
-    protected void setFechaPublicacion(String fechaPublicacion) {
+    public void setFechaPublicacion(String fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    protected Usuario getUsuario() {
-        return usuario;
+    public HashSet<Etiquetas> getEtiquetasPublicacion() {
+        return this.etiquetasPublicacion;
     }
 
-    protected void setUsuario(Usuario usuario) {
+    public void setEtiquetasPublicacion(HashSet<Etiquetas> etiquetasPublicacion) {
+        this.etiquetasPublicacion = etiquetasPublicacion;
+    }
+
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public void agregarEtiquetas(Etiquetas etiqueta) {
-        etiquetasPublicacion.add(etiqueta);
-
-    }
+  
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 
