@@ -4,12 +4,9 @@ public class App {
 
     
     public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
         
-=======
         System.out.println("Hello, World!");
         final Scanner sc = new Scanner(System.in);
->>>>>>> JoseManuel
 
         Usuario usuario1 = new Usuario(1, "Carlos", "sol123");
         Usuario usuario2 = new Usuario(2, "Ana", "luna456");
