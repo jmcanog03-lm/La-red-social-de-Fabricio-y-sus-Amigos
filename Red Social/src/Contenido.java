@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Scanner;
 import java.awt.Desktop;
 import java.io.File;
 
@@ -13,12 +14,10 @@ public abstract class Contenido {
     protected String rutaArchivo;
     protected String tituloContenido;
 
-
     public Contenido() {
     }
 
-
-    public Contenido( String fechaPublicacion,
+    public Contenido(String fechaPublicacion,
             Usuario usuario) {
         this.codigoPublicacion = contador;
         contador++;
@@ -60,7 +59,22 @@ public abstract class Contenido {
         this.usuario = usuario;
     }
 
-  
+    public void mostrarEtiquetas(Contenido contenido) {
+        for (Etiquetas etiquetas : contenido.getEtiquetasPublicacion()) {
+            System.out.println(etiquetas);
+        }
+    }
+
+    // public void agregarEtiquetas(Etiquetas etiqueta) {
+
+    // etiquetasPublicacion.add(etiqueta);
+    // }
+
+    private  void agregarEtiquetas(final Scanner sc) {
+        int numero = Integer.parseInt(sc.nextLine());
+        Etiquetas etiqueta = Etiquetas.values()[numero];
+        etiquetasPublicacion.add(etiqueta);
+    }
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 
@@ -76,7 +90,5 @@ public abstract class Contenido {
         // TODO Auto-generated method stub
         return " ID_Contenido: " + getCodigoPublicacion() + " Creador de contenido: " + this.usuario.getName_user();
     }
-
-
 
 }

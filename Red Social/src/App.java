@@ -1,6 +1,15 @@
+import java.util.Scanner;
+
 public class App {
+
+    
     public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
         
+=======
+        System.out.println("Hello, World!");
+        final Scanner sc = new Scanner(System.in);
+>>>>>>> JoseManuel
 
         Usuario usuario1 = new Usuario(1, "Carlos", "sol123");
         Usuario usuario2 = new Usuario(2, "Ana", "luna456");
@@ -26,5 +35,26 @@ public class App {
 
         Terminal.menuInicial();
         System.out.println(Terminal.menuInicial());
+        GestorContenido gestorC = new GestorContenido();
+
+        Contenido conten = new ContenidoTexto("12132131", usuario21, "hola");
+        
+        System.out.println("Etiquetas disponibles");
+        gestorC.mostrarEtiquetas();
+
+        System.out.println("Elige un numero de esas etiquetas del 1 al 10 tal cual estan y se agrega a tu publicacion");
+
+       
+
+        gestorC.agregarContenidoExis(conten);
+
+        gestorC.mostrarContenido();
+
+        System.out.println(gestorC.mostrarContenido());
+
+            conten.mostrarEtiquetas(conten);
+
+
+       
     }
 }

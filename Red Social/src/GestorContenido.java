@@ -59,9 +59,17 @@ public class GestorContenido {
         Publicaciones.add(contenido);
     }
 
-    public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo, String texto){
+    public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo,
+            String texto) {
         Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo);
         Publicaciones.add(contenido);
+    }
+
+    public void mostrarEtiquetas() {
+        for (Etiquetas etiqueta : Etiquetas.values()) {
+            System.out.println(etiqueta);
+        }
+
     }
 
     public String mostrarContenido() {
@@ -79,15 +87,15 @@ public class GestorContenido {
                 }
             }
 
-            if (c instanceof ContenidoMixto){
+            if (c instanceof ContenidoMixto) {
                 ContenidoMixto cm = (ContenidoMixto) c;
-                  try {
+                try {
                     File f = new File(cm.rutaArchivo);
                     cm.desktop.open(f);
-                  } catch (Exception e) {
-                     System.out.println("No se ha podido abrir el archivo " + cm.rutaArchivo);
-                  }
-                  
+                } catch (Exception e) {
+                    System.out.println("No se ha podido abrir el archivo " + cm.rutaArchivo);
+                }
+
             }
 
         }
@@ -103,6 +111,11 @@ public class GestorContenido {
             }
         }
         return null;
+    }
+
+    public void agregarContenidoExis(Contenido contenido) {
+        Publicaciones.add(contenido);
+
     }
 
     public HashSet<Contenido> TodasLasPublicaciones() {
