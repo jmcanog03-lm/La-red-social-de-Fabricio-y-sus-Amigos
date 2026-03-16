@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Usuario implements Comparable<Usuario>, Cloneable {
 
@@ -6,7 +7,7 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
     private String name_user;
     private String password;
     ///// Algotitmo seleccionado
-   // private HashSet<Etiquetas> set;
+    private HashSet<Etiquetas> setEtiqueta;
 
     public Usuario(int id, String name_user, String password) {
         this.id = id;
@@ -15,6 +16,15 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
      //   this.set = new HashSet<>();
 
     }
+
+    public HashSet<Etiquetas> getSetEtiqueta() {
+        return setEtiqueta;
+    }
+
+    public void setSetEtiqueta(HashSet<Etiquetas> setEtiqueta) {
+        this.setEtiqueta = setEtiqueta;
+    }
+    
 
     public int getId() {
         return id;
