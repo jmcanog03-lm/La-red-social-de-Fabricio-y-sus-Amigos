@@ -35,14 +35,16 @@ public class App {
         GestorContenido gestorC = new GestorContenido();
 
         Contenido conten = new ContenidoTexto("12132131", usuario21, "hola");
-        
+        Contenido conten2 = new ContenidoArchivo("12121", usuario21, ".\\img\\hola.jpg", "hola");
+        // C:\\Users\\tarde\\Desktop\\La-red-social-de-Fabricio-y-sus-Amigos\\Red Social\\img\\hola.jpg
         System.out.println("Etiquetas disponibles");
         gestorC.mostrarEtiquetas();
 
-        System.out.println("Elige un numero de esas etiquetas del 1 al 10 tal cual estan y se agrega a tu publicacion");
+        //System.out.println("Elige un numero de esas etiquetas del 1 al 10 tal cual estan y se agrega a tu publicacion");
 
 
         gestorC.agregarContenidoExis(conten);
+        gestorC.agregarContenidoExis(conten2);
 
         gestorC.mostrarContenido();
 
@@ -50,6 +52,7 @@ public class App {
 
             conten.mostrarEtiquetas(conten);
 
+        
 
        
     }

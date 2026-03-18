@@ -65,12 +65,12 @@ public class GestorContenido {
         Publicaciones.add(contenido);
     }
 
-    public void mostrarEtiquetas() {
-        for (Etiquetas etiqueta : Etiquetas.values()) {
-            System.out.println(etiqueta);
-        }
+    // public void mostrarEtiquetas() {
+    //     for (Etiquetas etiqueta : Etiquetas.values()) {
+    //         System.out.println(etiqueta);
+    //     }
 
-    }
+    // }
 
     public String mostrarContenido() {
         StringBuilder sb = new StringBuilder();
@@ -80,12 +80,13 @@ public class GestorContenido {
             if (c instanceof ContenidoArchivo) {
                 ContenidoArchivo ca = (ContenidoArchivo) c;
                 try {
-                    File f = new File(ca.rutaArchivo);
+                    File f = new File(ca.getRutaArchivo());
                     ca.desktop.open(f);
                 } catch (Exception e) {
-                    System.out.println("No se ha podido abrir el archivo " + ca.rutaArchivo);
+                    System.out.println("No se ha podido abrir el archivo " + ca.getRutaArchivo());
                 }
             }
+
 
             if (c instanceof ContenidoMixto) {
                 ContenidoMixto cm = (ContenidoMixto) c;

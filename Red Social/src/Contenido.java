@@ -31,6 +31,7 @@ public abstract class Contenido {
 
     abstract String mostrarSuperficial();
 
+
     public int getCodigoPublicacion() {
         return this.codigoPublicacion;
     }
@@ -41,6 +42,10 @@ public abstract class Contenido {
 
     public String getFechaPublicacion() {
         return this.fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(String fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
     }
 
     public HashSet<Etiquetas> getEtiquetasPublicacion() {
@@ -59,6 +64,38 @@ public abstract class Contenido {
         this.usuario = usuario;
     }
 
+    public String getTexto_contenido() {
+        return this.texto_contenido;
+    }
+
+    public void setTexto_contenido(String texto_contenido) {
+        this.texto_contenido = texto_contenido;
+    }
+
+    public Desktop getDesktop() {
+        return this.desktop;
+    }
+
+    public void setDesktop(Desktop desktop) {
+        this.desktop = desktop;
+    }
+
+    public String getRutaArchivo() {
+        return this.rutaArchivo;
+    }
+
+    public void setRutaArchivo(String rutaArchivo) {
+        this.rutaArchivo = rutaArchivo;
+    }
+
+    public String getTituloContenido() {
+        return this.tituloContenido;
+    }
+
+    public void setTituloContenido(String tituloContenido) {
+        this.tituloContenido = tituloContenido;
+    }
+    
     public void mostrarEtiquetas(Contenido contenido) {
         for (Etiquetas etiquetas : contenido.getEtiquetasPublicacion()) {
             System.out.println(etiquetas);

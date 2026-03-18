@@ -14,9 +14,14 @@ public class ContenidoArchivo extends Contenido {
         this.tituloContenido = titulo;
     }
 
+    
+
+    
+
+
     @Override
     String mostrarSuperficial() {
-        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario(); 
+        return  "ID " + getCodigoPublicacion() + " Usuario " + getUsuario() + " Titulo " + getTituloContenido(); 
     }
 
   
