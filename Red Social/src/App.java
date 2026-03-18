@@ -41,7 +41,6 @@ public class App {
 
         System.out.println("Elige un numero de esas etiquetas del 1 al 10 tal cual estan y se agrega a tu publicacion");
 
-       
 
         gestorC.agregarContenidoExis(conten);
 
