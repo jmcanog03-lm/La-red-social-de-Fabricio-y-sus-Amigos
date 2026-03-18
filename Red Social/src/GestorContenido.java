@@ -65,12 +65,12 @@ public class GestorContenido {
         Publicaciones.add(contenido);
     }
 
-    // public void mostrarEtiquetas() {
-    //     for (Etiquetas etiqueta : Etiquetas.values()) {
-    //         System.out.println(etiqueta);
-    //     }
+    public void mostrarEtiquetas() {
+        for (Etiquetas etiqueta : Etiquetas.values()) {
+            System.out.println(etiqueta);
+        }
 
-    // }
+    }
 
     public String mostrarContenido() {
         StringBuilder sb = new StringBuilder();
