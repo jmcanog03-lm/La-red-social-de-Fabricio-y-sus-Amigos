@@ -49,19 +49,19 @@ public class GestorContenido {
 
     // }
 
-    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto) {
-        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto);
+    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto,Etiquetas etiquetaP) {
+        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto,etiquetaP);
         Publicaciones.add(contenido);
     }
 
-    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
-        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo);
+    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo,Etiquetas etiquetaP) {
+        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo,etiquetaP);
         Publicaciones.add(contenido);
     }
 
     public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo,
-            String texto) {
-        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo);
+            String texto,Etiquetas etiquetaP) {
+        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo,etiquetaP);
         Publicaciones.add(contenido);
     }
 
@@ -116,7 +116,6 @@ public class GestorContenido {
 
     public void agregarContenidoExis(Contenido contenido) {
         Publicaciones.add(contenido);
-
     }
 
     public HashSet<Contenido> TodasLasPublicaciones() {

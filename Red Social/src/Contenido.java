@@ -15,10 +15,11 @@ public abstract class Contenido {
     protected String tituloContenido;
 
     public Contenido() {
+        this.etiquetasPublicacion = new HashSet<>();
     }
 
     public Contenido(String fechaPublicacion,
-            Usuario usuario) {
+            Usuario usuario, Etiquetas etiquetaP) {
         this.codigoPublicacion = contador;
         contador++;
         this.fechaPublicacion = fechaPublicacion;
@@ -27,6 +28,7 @@ public abstract class Contenido {
         this.desktop = Desktop.getDesktop();
         this.tituloContenido = tituloContenido;
         this.rutaArchivo = rutaArchivo;
+        this.etiquetasPublicacion.add(etiquetaP);
     }
 
     abstract String mostrarSuperficial();
@@ -122,10 +124,20 @@ public abstract class Contenido {
         }
     }
 
+
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return " ID_Contenido: " + getCodigoPublicacion() + " Creador de contenido: " + this.usuario.getName_user();
+        return "{" +
+            " codigoPublicacion='" + getCodigoPublicacion() + "'" +
+            ", fechaPublicacion='" + getFechaPublicacion() + "'" +
+            ", etiquetasPublicacion='" + getEtiquetasPublicacion() + "'" +
+            ", usuario='" + getUsuario() + "'" +
+            ", texto_contenido='" + getTexto_contenido() + "'" +
+            ", desktop='" + getDesktop() + "'" +
+            ", rutaArchivo='" + getRutaArchivo() + "'" +
+            ", tituloContenido='" + getTituloContenido() + "'" +
+            "}";
     }
+    
 
 }

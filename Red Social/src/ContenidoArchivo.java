@@ -8,16 +8,15 @@ public class ContenidoArchivo extends Contenido {
     }
 
 
-    public ContenidoArchivo(String fechaPublicacion, Usuario usuario, String ruta_archivo, String titulo) {
-        super(fechaPublicacion, usuario);
+    public ContenidoArchivo(String fechaPublicacion, Usuario usuario, String ruta_archivo, String titulo,Etiquetas etiquetaP) {
+        super(fechaPublicacion, usuario,etiquetaP);
         this.rutaArchivo = ruta_archivo;
         this.tituloContenido = titulo;
+
+        this.etiquetasPublicacion.add(etiquetaP);
     }
 
     
-
-    
-
 
     @Override
     String mostrarSuperficial() {
