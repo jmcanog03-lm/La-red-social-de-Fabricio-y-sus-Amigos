@@ -35,6 +35,7 @@ public class App {
         GestorContenido gestorC = new GestorContenido();
 
         Contenido conten = new ContenidoTexto("12132131", usuario21, "hola",Etiquetas.FABRICIO);
+         Contenido conten4 = new ContenidoTexto("12132131", usuario21, "holaawsdasdaajsdhjashjdshjasdjhasdjhasdjhahjsdjhasdhjashjdajhshjasyuqwyueqwyueqyuweyuqweyuqwyueqwyuweyuqeyuqwyueqwyueyuwqeyuwqeyuqwyueqwhewdjhsdhjasyidhqweyuqwehqwedyquwdhqwdyudeqwuydqwdhqwyudqwhdyqwudewqhjdywqdhwqdywqdhwqydwqhdqywdhwqydwqhjdqwyudhqwedyqbdhyqwdbqwdyuqwdnbqwdyuqwbdqyuwdqwedu8yqwedhuy",Etiquetas.FABRICIO);
         Contenido conten2 = new ContenidoArchivo("12121", usuario21, ".\\img\\hola.jpg", "hola",Etiquetas.COCINA);
         Contenido conten3 = new ContenidoMixto("123456", usuario10, "Hola esto es una publicacion", "\\img\\hola.jpg", "Publicacion mixto", Etiquetas.IA);
 
@@ -44,20 +45,18 @@ public class App {
 
         //System.out.println("Elige un numero de esas etiquetas del 1 al 10 tal cual estan y se agrega a tu publicacion");
 
-
         gestorC.agregarContenidoExis(conten);
         gestorC.agregarContenidoExis(conten2);
         gestorC.agregarContenidoExis(conten3);
+        gestorC.agregarContenidoExis(conten4);
 
-
-        gestorC.mostrarContenido();
-
+        conten.agregarEtiquetas(sc);
+        
         System.out.println(gestorC.mostrarContenido());
 
-        conten.mostrarEtiquetas(conten2);
-
+        conten.mostrarEtiquetas(conten);
         
 
-       
+    
     }
 }

@@ -12,9 +12,8 @@ public class ContenidoMixto extends Contenido {
             String archivo, String titulo, Etiquetas etiquetaP) {
         super(fechaPublicacion, usuario,etiquetaP);
         this.rutaArchivo = archivo;
-        this.tituloContenido = titulo;
         this.texto_Mixto = texto;
-
+        this.tituloContenido = titulo;
         this.etiquetasPublicacion.add(etiquetaP);
     }
 
@@ -50,10 +49,10 @@ public class ContenidoMixto extends Contenido {
 
             String resultado = sb.toString();
             return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user()
-                    + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + resultado;
+                    + " Titulo Archivo : " + getTexto_contenido() + " Texto: " + resultado;
         }
         return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user()
-                + " Titulo Archivo : " + getArchivo_mixto() + " Texto: " + getTexto_Mixto();
+                + " Titulo Archivo : " + getTituloContenido() + " Texto: " + getTexto_Mixto();
 
     }
 

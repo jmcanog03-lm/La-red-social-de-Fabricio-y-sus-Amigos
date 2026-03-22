@@ -1,19 +1,17 @@
 public class ContenidoTexto extends Contenido {
 
-
     public ContenidoTexto() {
     }
 
-    
-    public ContenidoTexto( String fechaPublicacion, Usuario usuario, String texto,Etiquetas etiquetaP) {
-      super(fechaPublicacion, usuario,etiquetaP);
-       super.fechaPublicacion = fechaPublicacion;
-       super.usuario = usuario;
-       super.texto_contenido = texto;
-       super.codigoPublicacion = super.contador;
-       super.contador++;
+    public ContenidoTexto(String fechaPublicacion, Usuario usuario, String texto, Etiquetas etiquetaP) {
+        super(fechaPublicacion, usuario, etiquetaP);
+        this.fechaPublicacion = fechaPublicacion;
+        this.usuario = usuario;
+        this.texto_contenido = texto;
+        this.codigoPublicacion = super.contador;
+        this.contador++;
 
-       this.etiquetasPublicacion.add(etiquetaP);
+        this.etiquetasPublicacion.add(etiquetaP);
     }
 
     public String getTexto_contenido() {
@@ -31,17 +29,18 @@ public class ContenidoTexto extends Contenido {
 
             for (int i = 0; i < texto_contenido.length(); i++) {
                 if (i <= 50) {
-                 char caracter = texto_contenido.charAt(i);
-                 sb.append(caracter);   
+                    char caracter = texto_contenido.charAt(i);
+                    sb.append(caracter);
                 }
-                
 
             }
 
             String resultado = sb.toString();
-            return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user() + " Texto : " + resultado;
+            return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user()
+                    + " Texto : " + resultado;
         }
-        return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user() + " Texto : " + getTexto_contenido();
+        return " ID_Contenido: " + getCodigoPublicacion() + " Usuario : " + getUsuario().getName_user() + " Texto : "
+                + getTexto_contenido();
     }
 
     @Override

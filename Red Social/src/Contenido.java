@@ -33,7 +33,6 @@ public abstract class Contenido {
 
     abstract String mostrarSuperficial();
 
-
     public int getCodigoPublicacion() {
         return this.codigoPublicacion;
     }
@@ -97,7 +96,7 @@ public abstract class Contenido {
     public void setTituloContenido(String tituloContenido) {
         this.tituloContenido = tituloContenido;
     }
-    
+
     public void mostrarEtiquetas(Contenido contenido) {
         for (Etiquetas etiquetas : contenido.getEtiquetasPublicacion()) {
             System.out.println(etiquetas);
@@ -109,10 +108,28 @@ public abstract class Contenido {
     // etiquetasPublicacion.add(etiqueta);
     // }
 
-    private  void agregarEtiquetas(final Scanner sc) {
-        int numero = Integer.parseInt(sc.nextLine());
-        Etiquetas etiqueta = Etiquetas.values()[numero];
-        etiquetasPublicacion.add(etiqueta);
+    public void agregarEtiquetas(final Scanner sc) {
+
+        // int numero = Integer.parseInt(sc.nextLine());
+        // while (numero >= 0 && numero <= 11) {
+        // numero = Integer.parseInt(sc.nextLine());
+        // if (numero <= 11) {
+        // Etiquetas etiqueta = Etiquetas.values()[numero - 1];
+        // etiquetasPublicacion.add(etiqueta);
+        // }
+        // }
+
+        boolean salida = true;
+        while (salida) {
+            int numero = Integer.parseInt(sc.nextLine());
+            if (numero <= 11) {
+                Etiquetas etiqueta = Etiquetas.values()[numero - 1];
+                etiquetasPublicacion.add(etiqueta);
+            } else if (numero == 12) {
+                salida = false;
+            }
+        }
+
     }
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
@@ -124,20 +141,18 @@ public abstract class Contenido {
         }
     }
 
-
     @Override
     public String toString() {
         return "{" +
-            " codigoPublicacion='" + getCodigoPublicacion() + "'" +
-            ", fechaPublicacion='" + getFechaPublicacion() + "'" +
-            ", etiquetasPublicacion='" + getEtiquetasPublicacion() + "'" +
-            ", usuario='" + getUsuario() + "'" +
-            ", texto_contenido='" + getTexto_contenido() + "'" +
-            ", desktop='" + getDesktop() + "'" +
-            ", rutaArchivo='" + getRutaArchivo() + "'" +
-            ", tituloContenido='" + getTituloContenido() + "'" +
-            "}";
+                " codigoPublicacion='" + getCodigoPublicacion() + "'" +
+                ", fechaPublicacion='" + getFechaPublicacion() + "'" +
+                ", etiquetasPublicacion='" + getEtiquetasPublicacion() + "'" +
+                ", usuario='" + getUsuario() + "'" +
+                ", texto_contenido='" + getTexto_contenido() + "'" +
+                ", desktop='" + getDesktop() + "'" +
+                ", rutaArchivo='" + getRutaArchivo() + "'" +
+                ", tituloContenido='" + getTituloContenido() + "'" +
+                "}";
     }
-    
 
 }

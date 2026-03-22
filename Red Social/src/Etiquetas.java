@@ -11,6 +11,7 @@ SERIES(9),
 TECNOLOGIA(10),
 COMIC(11);
 
+
  private final int n;
 
     private Etiquetas(int n){
