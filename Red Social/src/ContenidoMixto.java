@@ -10,15 +10,14 @@ public class ContenidoMixto extends Contenido {
     }
 
     public ContenidoMixto(String fechaPublicacion, Usuario usuario, String texto,
-            String archivo, String titulo, Etiquetas etiquetaP) {
-        super(fechaPublicacion, usuario, etiquetaP);
+            String archivo, String titulo) {
+        super(fechaPublicacion, usuario);
         this.rutaArchivo = archivo;
         this.texto_Mixto = texto;
         this.tituloContenido = titulo;
         this.codigoPublicacion = this.contador;
         this.contador++;
 
-        this.etiquetasPublicacion.add(etiquetaP);
     }
 
     public String getTexto_Mixto() {

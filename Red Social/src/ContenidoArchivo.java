@@ -8,14 +8,14 @@ public class ContenidoArchivo extends Contenido {
     }
 
 
-    public ContenidoArchivo(String fechaPublicacion, Usuario usuario, String ruta_archivo, String titulo,Etiquetas etiquetaP) {
-        super(fechaPublicacion, usuario,etiquetaP);
+    public ContenidoArchivo(String fechaPublicacion, Usuario usuario, String ruta_archivo, String titulo) {
+        super(fechaPublicacion, usuario);
         this.rutaArchivo = ruta_archivo;
         this.tituloContenido = titulo;
         this.codigoPublicacion = this.contador;
         this.contador++;
 
-        this.etiquetasPublicacion.add(etiquetaP);
+       
     }
 
     

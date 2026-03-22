@@ -19,7 +19,7 @@ public abstract class Contenido {
     }
 
     public Contenido(String fechaPublicacion,
-            Usuario usuario, Etiquetas etiquetaP) {
+            Usuario usuario) {
         this.codigoPublicacion = contador;
         contador++;
         this.fechaPublicacion = fechaPublicacion;
@@ -28,7 +28,7 @@ public abstract class Contenido {
         this.desktop = Desktop.getDesktop();
         this.tituloContenido = tituloContenido;
         this.rutaArchivo = rutaArchivo;
-        this.etiquetasPublicacion.add(etiquetaP);
+       
     }
 
     abstract String mostrarSuperficial();

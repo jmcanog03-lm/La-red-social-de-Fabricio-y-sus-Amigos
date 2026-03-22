@@ -49,19 +49,19 @@ public class GestorContenido {
 
     // }
 
-    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto,Etiquetas etiquetaP) {
-        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto,etiquetaP);
+    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto ) {
+        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto);
         Publicaciones.add(contenido);
     }
 
-    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo,Etiquetas etiquetaP) {
-        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo,etiquetaP);
+    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
+        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo);
         Publicaciones.add(contenido);
     }
 
     public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo,
-            String texto,Etiquetas etiquetaP) {
-        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo,etiquetaP);
+            String texto) {
+        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo);
         Publicaciones.add(contenido);
     }
 
