@@ -35,10 +35,10 @@ public class App {
         GestorContenido gestorC = new GestorContenido();
 
         Contenido conten = new ContenidoTexto("12132131", usuario21, "hola",Etiquetas.FABRICIO);
-         Contenido conten4 = new ContenidoTexto("12132131", usuario21, "holaawsdasdaajsdhjashjdshjasdjhasdjhasdjhahjsdjhasdhjashjdajhshjasyuqwyueqwyueqyuweyuqweyuqwyueqwyuweyuqeyuqwyueqwyueyuwqeyuwqeyuqwyueqwhewdjhsdhjasyidhqweyuqwehqwedyquwdhqwdyudeqwuydqwdhqwyudqwhdyqwudewqhjdywqdhwqdywqdhwqydwqhdqywdhwqydwqhjdqwyudhqwedyqbdhyqwdbqwdyuqwdnbqwdyuqwbdqyuwdqwedu8yqwedhuy",Etiquetas.FABRICIO);
+        Contenido conten4 = new ContenidoTexto("12132131", usuario21, "holaawsdasdaajsdhjashjdshjasdjhasdjhasdjhahjsdjhasdhjashjdajhshjasyuqwyueqwyueqyuweyuqweyuqwyueqwyuweyuqeyuqwyueqwyueyuwqeyuwqeyuqwyueqwhewdjhsdhjasyidhqweyuqwehqwedyquwdhqwdyudeqwuydqwdhqwyudqwhdyqwudewqhjdywqdhwqdywqdhwqydwqhdqywdhwqydwqhjdqwyudhqwedyqbdhyqwdbqwdyuqwdnbqwdyuqwbdqyuwdqwedu8yqwedhuy",Etiquetas.FABRICIO);
         Contenido conten2 = new ContenidoArchivo("12121", usuario21, ".\\img\\hola.jpg", "hola",Etiquetas.COCINA);
         Contenido conten3 = new ContenidoMixto("123456", usuario10, "Hola esto es una publicacion", "\\img\\hola.jpg", "Publicacion mixto", Etiquetas.IA);
-
+         Contenido conten5 = new ContenidoTexto("121312131", usuario21, "holasasdasda",Etiquetas.VIDEOJUEGOS);
         // C:\\Users\\tarde\\Desktop\\La-red-social-de-Fabricio-y-sus-Amigos\\Red Social\\img\\hola.jpg
         System.out.println("Etiquetas disponibles");
         gestorC.mostrarEtiquetas();
@@ -49,8 +49,11 @@ public class App {
         gestorC.agregarContenidoExis(conten2);
         gestorC.agregarContenidoExis(conten3);
         gestorC.agregarContenidoExis(conten4);
+        gestorC.agregarContenidoExis(conten5);
 
         conten.agregarEtiquetas(sc);
+
+
         
         System.out.println(gestorC.mostrarContenido());
 

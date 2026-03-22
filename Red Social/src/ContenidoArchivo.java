@@ -12,6 +12,8 @@ public class ContenidoArchivo extends Contenido {
         super(fechaPublicacion, usuario,etiquetaP);
         this.rutaArchivo = ruta_archivo;
         this.tituloContenido = titulo;
+        this.codigoPublicacion = this.contador;
+        this.contador++;
 
         this.etiquetasPublicacion.add(etiquetaP);
     }

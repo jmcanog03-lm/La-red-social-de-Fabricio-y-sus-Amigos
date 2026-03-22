@@ -8,7 +8,7 @@ public class ContenidoTexto extends Contenido {
         this.fechaPublicacion = fechaPublicacion;
         this.usuario = usuario;
         this.texto_contenido = texto;
-        this.codigoPublicacion = super.contador;
+        this.codigoPublicacion = this.contador;
         this.contador++;
 
         this.etiquetasPublicacion.add(etiquetaP);
