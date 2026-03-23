@@ -113,9 +113,23 @@ public class Usuario implements Comparable<Usuario>, Cloneable{
         return super.clone();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) 
+            return true;
+        if (!(o instanceof Usuario)) 
+            return false;
+        Usuario u = (Usuario) o;
+        return this.id == u.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
    
-    public List<Contenido> mostrarContenido(Usuario user, HashSet<Contenido> contenidos) {
-    return algoritmoPresentacion.estrategia(user, contenidos);
-}
+    public List<Contenido> mostrarContenido(List<Contenido> contenidos) {
+    return algoritmoPresentacion.estrategia(this, contenidos);
+    }
 
 }

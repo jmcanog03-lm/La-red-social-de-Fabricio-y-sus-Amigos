@@ -5,23 +5,27 @@ import java.util.List;
 public class AlgoritmoSeguidos implements AlgoritmoPresentacion {
 
     @Override
-    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones) {
-
-        List<Contenido> contenidoAuxiliar = new ArrayList<>();
-        for (Contenido publicacion : publicaciones) {
-            if(publicacion.getUsuario().equals(user)){
-              contenidoAuxiliar.add(publicacion);  
-            }
+    public List<Contenido> estrategia(Usuario user, List<Contenido> publicaciones) {
+        List<Contenido> seguidos = new ArrayList<>();
+        List<Contenido> otros = new ArrayList<>();
+        //No se por qué no va entiendo que es algo del equals del usuario pero me estoy volviendo loco
+    for (Contenido content : publicaciones) {
+        if (user.getFollow().contains(content.getUsuario())) {
+            System.out.println(1);
+            seguidos.add(content);
+        } else {
+            System.out.println(2);
+            otros.add(content);
         }
+    }
+    
 
-        for (Contenido publicacion : publicaciones) {
-            if(!publicacion.getUsuario().equals(user)){
-              contenidoAuxiliar.add(publicacion);  
-            }
 
-        }
-
-        return contenidoAuxiliar;
+    seguidos.addAll(otros);
+    for(Contenido contenido : seguidos){
+        System.out.println(contenido);
+    }
+    return seguidos;
     }
 
 }

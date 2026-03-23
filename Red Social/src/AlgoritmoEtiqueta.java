@@ -5,7 +5,7 @@ import java.util.List;
 public class AlgoritmoEtiqueta implements AlgoritmoPresentacion{
 
     @Override
-    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones) {
+    public List<Contenido> estrategia(Usuario user, List<Contenido> publicaciones) {
 
         List<Contenido> contenidoAuxiliar = new ArrayList<>();
         for (Contenido contenidoSet : publicaciones) {
