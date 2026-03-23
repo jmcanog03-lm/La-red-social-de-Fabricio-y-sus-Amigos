@@ -81,13 +81,14 @@ public abstract class Terminal {
     public static void MenuIniciado(String user){
         
         int option = -1;
-        while (option != 4){
+        while (option != 5){
             System.out.println("Bienvenido " + user);
         System.out.println("Elige la actividad que quieres hacer");
         System.out.println("1- Ver contenido");
         System.out.println("2- Crear Contenido");
         System.out.println("3- Configuración");
-        System.out.println("4- Salir");
+        System.out.println("4- Abrir publicacion");
+        System.out.println("5- Salir");
             option = Integer.parseInt(sc.nextLine());
             switch (option){
                 case 1: System.out.println(redSocial.PublicacionesPortal());
@@ -119,6 +120,26 @@ public abstract class Terminal {
                 break;
                         case 5: System.out.println("Saliendo...");
                         break;
+
+                        case 4: System.out.println("Que ID de publicacion quieres abrir");
+                        int id = Integer.parseInt(sc.nextLine());
+                        System.out.println(redSocial.abrirPublicacion(id));
+                        
+                        System.out.println("Quieres seguir al usuario? Y/N");
+                        String opcion = sc.nextLine();
+                        if(opcion.equals("Y") || opcion.equals("y")){
+                            
+                            for (Usuario usuarioASeguir : gUsuarios.getList()){
+                                if(usuarioASeguir.getId() == id){
+                                    redSocial.seguir(usuarioASeguir);
+                                    System.out.println(redSocial.ConfirmarSeguimientoUsuario(id) ? "Ahora sigues a " + usuarioASeguir.getName_user() : "No sigues a " + usuarioASeguir.getName_user());
+                                }
+                            }
+                        }
+                        
+                        
+
+
 
                         
                      

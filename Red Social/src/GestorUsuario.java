@@ -1,3 +1,5 @@
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -38,6 +40,10 @@ public class GestorUsuario {
         return resultado;
 
         
+    }
+
+    public HashSet<Usuario> getList(){
+        return baseDeDatos;
     }
 
     public HashSet<Usuario> coleccionUsuarios(){
