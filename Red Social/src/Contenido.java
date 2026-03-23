@@ -70,11 +70,6 @@ public abstract class Contenido {
     // etiquetasPublicacion.add(etiqueta);
     // }
 
-    private  void agregarEtiquetas(final Scanner sc) {
-        int numero = Integer.parseInt(sc.nextLine());
-        Etiquetas etiqueta = Etiquetas.values()[numero];
-        etiquetasPublicacion.add(etiqueta);
-    }
 
     public void eliminarEtiqueta(Etiquetas etiqueta) {
 

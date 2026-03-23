@@ -5,10 +5,11 @@ import java.util.List;
 public class AlgoritmoEtiqueta implements AlgoritmoPresentacion{
 
     @Override
-    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones, Contenido contenido) {
+    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones) {
+
         List<Contenido> contenidoAuxiliar = new ArrayList<>();
         for (Contenido contenidoSet : publicaciones) {
-            for (Etiquetas etiquetas : contenido.getEtiquetasPublicacion()) {
+            for (Etiquetas etiquetas : contenidoSet.getEtiquetasPublicacion()) {
                 if (contenidoSet.etiquetasPublicacion.contains(etiquetas)) {
                     contenidoAuxiliar.add(contenidoSet);
                 }
@@ -17,7 +18,7 @@ public class AlgoritmoEtiqueta implements AlgoritmoPresentacion{
         }
 
         for (Contenido contenidoSet : publicaciones) {
-            for (Etiquetas etiquetas : contenido.getEtiquetasPublicacion()) {
+            for (Etiquetas etiquetas : contenidoSet.getEtiquetasPublicacion()) {
                 if (!contenidoSet.etiquetasPublicacion.contains(etiquetas)) {
                     contenidoAuxiliar.add(contenidoSet);
                 }

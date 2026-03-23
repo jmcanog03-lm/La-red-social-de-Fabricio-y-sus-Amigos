@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public abstract class Terminal {
     static Scanner sc = new Scanner(System.in);
-    static GestorUsuario gUsuarios = new GestorUsuario();
+    static GestorUsuario gUsuarios = GestorUsuario.getInstancia();
     static String userName = "";
     static Usuario userTrue;
+    static RedSocial redSocial = new RedSocial(userTrue);
     public static void menuInicial(){
         // String titulo = "Bienvenidos a la Magnífica Red Social de Fabricio y sus amigos";
         // String pregunta = "Qué opción deseas realizar";
@@ -15,15 +16,20 @@ public abstract class Terminal {
         System.out.println("1- Iniciar Sesión");
         System.out.println("2- Crear Usuario");
         
-        int option = Integer.parseInt(sc.nextLine());
+        int option = 0;
         while (option != 1 || option != 2){
+            option = Integer.parseInt(sc.nextLine());
             switch (option){
             case 1:
                 if(InicioSesion() == false) option = 0;
-                else MenuIniciado(userName);        
+                else {
+                    redSocial.setSesion(userTrue);
+                    MenuIniciado(userName);  
+                }      
                 break;
             case 2:
                 CrearUsuario();
+                System.out.println("Usuario creado, pulsa 1 para iniciar sesion");
                 break;
             default:
                 break;
@@ -73,41 +79,98 @@ public abstract class Terminal {
     }
 
     public static void MenuIniciado(String user){
-        System.out.println("Bienvenido " + user);
-        System.out.println("");
-    }
+        
+        int option = -1;
+        while (option != 4){
+            System.out.println("Bienvenido " + user);
+        System.out.println("Elige la actividad que quieres hacer");
+        System.out.println("1- Ver contenido");
+        System.out.println("2- Crear Contenido");
+        System.out.println("3- Configuración");
+        System.out.println("4- Salir");
+            option = Integer.parseInt(sc.nextLine());
+            switch (option){
+                case 1: System.out.println(redSocial.PublicacionesPortal());
 
-    public static void CrearPublicacion(){
-        GestorContenido gContenido = new GestorContenido();
-        System.out.println("¿Qué tipo de publicación quieres hacer?");
-        System.out.println("1. Texto");
-        System.out.println("2. Imagen");
-        System.out.println("2. Mixto");
-        int option = Integer.parseInt(sc.nextLine());
-        while (option != 0){
-            switch(option){
-                case 1: 
-                System.out.println("Introduce el texto de tu publicación");
-                String textoT = sc.nextLine();
-                gContenido.crearContenidoTexto("fecha de hoy", userTrue, textoT);
-                    break;
-                case 2:
-                System.out.println("Introduce la direccion de tu imagen");
-                String imagenI = sc.nextLine();
-                System.out.println("Introduce el título de la imagen");
-                String tituloI = sc.nextLine();
-                gContenido.crearContenidoImagen("fecha de hoy", userTrue, imagenI, tituloI);
-                    break;
-                case 3:
-                System.out.println("Introduce el texto de tu publicación");
-                String textoM = sc.nextLine();
-                System.out.println("Introduce la direccion de tu imagen");
-                String imagenM = sc.nextLine();
-                System.out.println("Introduce el titulo de la imagen");
-                String tituloM = sc.nextLine();
+                break;
+                case 2: 
+                        crearPublicacion();
+                break;
+                        case 3:
+                               
+                                int optionAlgoritmo = 0;
+                                
+                                     System.out.println("Qué algoritmo de seleccion de contenido quieres usar");
+                                System.out.println("1. Por seguidos");
+                                System.out.println("2. Por más recientes");
+                                System.out.println("3. Por interés");
+                                System.out.println("4. Salir");
+                                    optionAlgoritmo = Integer.parseInt(sc.nextLine());
+                                    switch (optionAlgoritmo){
+                                    case 1: userTrue.setAlgoritmoPresentacion(new AlgoritmoSeguidos()); 
+                                    break;
+                                    case 2: userTrue.setAlgoritmoPresentacion(new AlgoritmoFecha()); 
+                                    break;
+                                    case 3: userTrue.setAlgoritmoPresentacion(new AlgoritmoEtiqueta()); 
+                                    break;
+                                    }
+                                    userTrue.mostrarContenido(userTrue, redSocial.todasLasPublicaciones());
+                                
+                break;
+                        case 5: System.out.println("Saliendo...");
+                        break;
 
-                gContenido.crearContenidoMixto("fecha de hoy", userTrue, imagenM, tituloM, textoM);
+                        
+                     
+                        
+                    
             }
+            
         }
     }
+    
+
+    public static void crearPublicacion(){
+                        int optionContent = 0;
+                        System.out.println("Que contenido quieres crear");
+                        System.out.println("1. Texto");
+                        System.out.println("2. Imagen");
+                        System.out.println("3. Mixto");
+                        System.out.println("4. Salir");
+                        while (optionContent != 4){
+                            
+                            optionContent = Integer.parseInt(sc.nextLine());
+                            System.out.println("Antes de crear tu publicacion, que etiqueta quieres anadirle?");
+                            System.out.println("A continuacion se muestra una lista de las etiquetas disponibles");
+                            redSocial.mostrarEtiquetas();
+                            String etiquetaAnadir = sc.nextLine();
+                            Etiquetas etiqueta = Etiquetas.valueOf(etiquetaAnadir.toUpperCase());
+                            switch (optionContent) {
+                                case 1:
+                                    System.out.println("Que texto quieres publicar");
+                                    String textoAPublicar = sc.nextLine();
+                                    redSocial.crearContentText(textoAPublicar, etiqueta);
+                                    optionContent = 4;
+                                        break;
+                                case 2:
+                                    System.out.println("Escribe la url de la imagen");
+                                    String url = sc.nextLine();
+                                    System.out.println("Escribe el titulo");
+                                    String titulo = sc.nextLine();
+                                    redSocial.crearContentImagen(url, titulo, etiqueta);
+                                    optionContent = 4;
+                                    break;
+                                case 3:
+                                    System.out.println("Que texto quieres publicar");
+                                    String textoAPublicarMixto = sc.nextLine();
+                                    System.out.println("Escribe la url de la imagen");
+                                    String urlMixto = sc.nextLine();
+                                    System.out.println("Escribe el titulo");
+                                    String tituloMixto = sc.nextLine();
+                                    redSocial.crearContentMixto(urlMixto, tituloMixto, textoAPublicarMixto, etiqueta);
+                                    optionContent = 4;
+                            }
+                            
+                        }
+                    }
 }

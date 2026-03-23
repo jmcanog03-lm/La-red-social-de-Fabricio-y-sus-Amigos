@@ -6,7 +6,7 @@ import java.util.List;
 public class AlgoritmoFecha implements AlgoritmoPresentacion {
 
     @Override
-    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> objetos, Contenido contenido) {
+    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> objetos) {
         List<Contenido> porFecha = new ArrayList<>(objetos);
 
         porFecha.sort(Comparator.comparing(Contenido::getFechaPublicacion));

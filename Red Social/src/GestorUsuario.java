@@ -2,8 +2,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class GestorUsuario {
-    private HashSet<Usuario> baseDeDatos;
-    private HashMap <String, Usuario> MapBaseDeDatos;
+    private static HashSet<Usuario> baseDeDatos;
+    private static HashMap <String, Usuario> MapBaseDeDatos;
+    private static GestorUsuario instancia;
 
     public GestorUsuario() {
         this.baseDeDatos = new HashSet<>();
@@ -18,6 +19,13 @@ public class GestorUsuario {
     public Usuario buscar_Usuario(String user_name){
 
         return MapBaseDeDatos.get(user_name);
+    }
+
+    public static GestorUsuario getInstancia() {
+        if (instancia == null) {
+            instancia = new GestorUsuario();
+        }
+        return instancia;
     }
     
     public String mostrarUsuario(){

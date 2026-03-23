@@ -1,12 +1,13 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
-public class Usuario implements Comparable<Usuario>, Cloneable {
+public class Usuario implements Comparable<Usuario>, Cloneable{
 
    private int id;
     private String name_user;
     private String password;
-    ///// Algotitmo seleccionado
+    private AlgoritmoPresentacion algoritmoPresentacion;
     private HashSet<Etiquetas> setEtiqueta;
     private HashSet<Usuario> follow;
 
@@ -16,6 +17,7 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
         this.password = password;
         this.setEtiqueta = new HashSet<>();
         this.follow = new HashSet<>();
+        this.algoritmoPresentacion = new AlgoritmoSeguidos();
 
     }
 
@@ -33,6 +35,14 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
 
     public void setSetEtiqueta(HashSet<Etiquetas> setEtiquetas) {
         this.setEtiqueta = setEtiquetas;
+    }
+
+    public void setAlgoritmoPresentacion(AlgoritmoPresentacion alg){
+        this.algoritmoPresentacion = alg;
+    }
+
+    public AlgoritmoPresentacion getAlgoritmoPresentacion(){
+        return this.algoritmoPresentacion;
     }
 
 
@@ -102,5 +112,10 @@ public class Usuario implements Comparable<Usuario>, Cloneable {
         // TODO Auto-generated method stub
         return super.clone();
     }
+
+   
+    public List<Contenido> mostrarContenido(Usuario user, HashSet<Contenido> contenidos) {
+    return algoritmoPresentacion.estrategia(user, contenidos);
+}
 
 }
