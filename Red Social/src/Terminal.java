@@ -82,6 +82,9 @@ public abstract class Terminal {
         
         int option = -1;
         while (option != 5){
+            System.out.println();
+            System.out.println();
+            System.out.println();
             System.out.println("Bienvenido " + user);
         System.out.println("Elige la actividad que quieres hacer");
         System.out.println("1- Ver contenido");
@@ -115,7 +118,8 @@ public abstract class Terminal {
                                     case 3: userTrue.setAlgoritmoPresentacion(new AlgoritmoEtiqueta()); 
                                     break;
                                     }
-                                    userTrue.mostrarContenido(userTrue, redSocial.todasLasPublicaciones());
+                                    
+                                    redSocial.cambiarOrden(userTrue.mostrarContenido(redSocial.todasLasPublicaciones()));
                                 
                 break;
                         case 5: System.out.println("Saliendo...");
@@ -129,14 +133,19 @@ public abstract class Terminal {
                         String opcion = sc.nextLine();
                         if(opcion.equals("Y") || opcion.equals("y")){
                             
-                            for (Usuario usuarioASeguir : gUsuarios.getList()){
-                                if(usuarioASeguir.getId() == id){
-                                    redSocial.seguir(usuarioASeguir);
-                                    System.out.println(redSocial.ConfirmarSeguimientoUsuario(id) ? "Ahora sigues a " + usuarioASeguir.getName_user() : "No sigues a " + usuarioASeguir.getName_user());
-                                }
-                            }
+                            redSocial.seguir(redSocial.obtenerPublicacionAPartirDeID(id).getUsuario());
+                            System.out.println("Ahora sigues a " + redSocial.obtenerPublicacionAPartirDeID(id).getUsuario().getName_user());
+                            // for (Usuario usuarioASeguir : gUsuarios.getList()){
+                            //     if(usuarioASeguir.getId() == id){
+
+                            //         redSocial.seguir(usuarioASeguir);
+                            //         System.out.println("Ahora sigues a " + usuarioASeguir.getName_user());
+                            //     }
+                            // }
+                        } else if (opcion.equals("N") || opcion.equals("n")){
+                            System.out.println("No seguiste a nadie");
+                            System.out.println();
                         }
-                        
                         
 
 

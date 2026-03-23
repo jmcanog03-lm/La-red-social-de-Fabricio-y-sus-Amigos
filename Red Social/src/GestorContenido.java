@@ -7,18 +7,18 @@ import java.awt.Desktop;
 import java.io.File;
 
 public class GestorContenido {
-    private HashSet<Contenido> Publicaciones = new HashSet<>();
+    private List<Contenido> Publicaciones;
     private static GestorContenido instancia;
 
     public GestorContenido() {
-        Publicaciones = new HashSet<>();
+        Publicaciones = new ArrayList<>();
     }
 
-    public HashSet<Contenido> getPublicaciones(){
+    public List<Contenido> getPublicaciones(){
         return this.Publicaciones;
     }
 
-    public void setPublicaciones (HashSet<Contenido> Publicaciones){
+    public void setPublicaciones (List<Contenido> Publicaciones){
         this.Publicaciones = Publicaciones;
     }
 
@@ -133,7 +133,7 @@ public class GestorContenido {
 
     }
 
-    public HashSet<Contenido> TodasLasPublicaciones() {
+    public List<Contenido> TodasLasPublicaciones() {
         return Publicaciones;
     }
 

@@ -1,6 +1,8 @@
 import java.security.PublicKey;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class RedSocial {
     private Usuario Sesion;
@@ -47,7 +49,7 @@ public class RedSocial {
         return gestorContenidoredSocial.mostrarContenido();
     }
 
-    public HashSet<Contenido> todasLasPublicaciones(){
+    public List<Contenido> todasLasPublicaciones(){
         return gestorContenidoredSocial.getPublicaciones();
     }
 
@@ -62,7 +64,7 @@ public class RedSocial {
             
     }
 
-    public void cambiarOrden(HashSet<Contenido> publis){
+    public void cambiarOrden(List<Contenido> publis){
         gestorContenidoredSocial.setPublicaciones(publis);
     }
 
@@ -80,6 +82,10 @@ public class RedSocial {
 
     public void crearContentMixto(String url, String text, String titulo, Etiquetas etiqueta){
         gestorContenidoredSocial.crearContenidoMixto(localDate, Sesion, url, titulo, text, etiqueta);
+    }
+
+    public Contenido obtenerPublicacionAPartirDeID(int id){
+        return gestorContenidoredSocial.buscarContenido(id);
     }
 
     
