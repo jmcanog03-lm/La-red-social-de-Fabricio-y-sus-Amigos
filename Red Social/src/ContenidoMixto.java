@@ -62,6 +62,6 @@ public class ContenidoMixto extends Contenido {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return super.toString() + " Texto : " + texto_Mixto + " Archivo : " + archivo_mixto;
+        return super.toString() + " Texto : " + texto_Mixto + " Archivo : " + getRutaArchivo();
     }
 }

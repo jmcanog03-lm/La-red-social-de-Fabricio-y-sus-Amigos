@@ -16,6 +16,10 @@ public abstract class Contenido {
 
     public Contenido() {
         this.etiquetasPublicacion = new HashSet<>();
+        this.fechaPublicacion = "";
+        this.texto_contenido = "";
+        this.desktop = Desktop.getDesktop();
+        this.rutaArchivo = "";
     }
 
     public Contenido(String fechaPublicacion,

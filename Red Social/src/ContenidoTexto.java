@@ -1,6 +1,7 @@
 public class ContenidoTexto extends Contenido {
 
     public ContenidoTexto() {
+        super();
     }
 
     public ContenidoTexto(String fechaPublicacion, Usuario usuario, String texto) {
