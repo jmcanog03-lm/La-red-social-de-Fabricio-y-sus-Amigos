@@ -4,13 +4,15 @@ public class ContenidoTexto extends Contenido {
         super();
     }
 
-    public ContenidoTexto(String fechaPublicacion, Usuario usuario, String texto) {
-        super(fechaPublicacion, usuario);
-        this.fechaPublicacion = fechaPublicacion;
-        this.usuario = usuario;
-        this.texto_contenido = texto;
-        this.codigoPublicacion = this.contador;
-        this.contador++;
+    
+    public ContenidoTexto( String fechaPublicacion, Usuario usuario, String texto, Etiquetas etiqueta) {
+       super(fechaPublicacion,usuario);
+       super.fechaPublicacion = fechaPublicacion;
+       super.usuario = usuario;
+       super.texto_contenido = texto;
+       super.codigoPublicacion = super.contador;
+       super.contador++;
+       super.etiquetasPublicacion.add(etiqueta);
     }
 
     public String getTexto_contenido() {

@@ -5,7 +5,8 @@ import java.util.List;
 public class AlgoritmoSeguidos implements AlgoritmoPresentacion {
 
     @Override
-    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones, Contenido contenido) {
+    public List<Contenido> estrategia(Usuario user, HashSet<Contenido> publicaciones) {
+
         List<Contenido> contenidoAuxiliar = new ArrayList<>();
         for (Contenido publicacion : publicaciones) {
             if(publicacion.getUsuario().equals(user)){

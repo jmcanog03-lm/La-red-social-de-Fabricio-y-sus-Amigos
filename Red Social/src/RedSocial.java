@@ -1,16 +1,19 @@
+import java.security.PublicKey;
+import java.time.LocalDate;
 import java.util.HashSet;
 
 public class RedSocial {
     private Usuario Sesion;
     private HashSet<Usuario> follow;
     private GestorContenido gestorContenidoredSocial;
+    private String localDate;
 
-    public RedSocial(Usuario usuario, HashSet<Usuario> baseDeDatos, GestorContenido gc) {
-        if (inicioSesion(usuario, baseDeDatos)) {
+    public RedSocial(Usuario usuario) {
+        
             this.follow = new HashSet<>();
             this.Sesion = usuario;
-            this.gestorContenidoredSocial = gc;
-        }
+            this.gestorContenidoredSocial = GestorContenido.getInstancia();
+            this.localDate = "23/03/2026";
 
     }
 
@@ -38,20 +41,14 @@ public class RedSocial {
         }
         return false;
     }
-
-    public boolean inicioSesion(Usuario usuario, HashSet<Usuario> baseDeDatos) {
-        for (Usuario usuarioSesion : baseDeDatos) {
-            if ((usuario.getName_user().equals(usuarioSesion.getName_user()))
-                    && (usuario.getPassword().equals(usuarioSesion.getPassword()))) {
-
-                return true;
-            }
-        }
-        return false;
-    }
+  
 
     public String PublicacionesPortal() {
         return gestorContenidoredSocial.mostrarContenido();
+    }
+
+    public HashSet<Contenido> todasLasPublicaciones(){
+        return gestorContenidoredSocial.getPublicaciones();
     }
 
     public String abrirPublicacion(int id_contenido) {
@@ -64,5 +61,27 @@ public class RedSocial {
         return seguir(usuario);
             
     }
+
+    public void cambiarOrden(HashSet<Contenido> publis){
+        gestorContenidoredSocial.setPublicaciones(publis);
+    }
+
+    public void mostrarEtiquetas(){
+        gestorContenidoredSocial.mostrarEtiquetas();
+    }
+
+    public void crearContentText(String text, Etiquetas etiqueta){
+        gestorContenidoredSocial.crearContenidoTexto(localDate, Sesion, text, etiqueta);
+    }
+
+    public void crearContentImagen(String url, String titulo, Etiquetas etiqueta){
+        gestorContenidoredSocial.crearContenidoImagen(localDate, Sesion, url, titulo, etiqueta);
+    }
+
+    public void crearContentMixto(String url, String text, String titulo, Etiquetas etiqueta){
+        gestorContenidoredSocial.crearContenidoMixto(localDate, Sesion, url, titulo, text, etiqueta);
+    }
+
+    
 
 }

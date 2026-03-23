@@ -8,9 +8,18 @@ import java.io.File;
 
 public class GestorContenido {
     private HashSet<Contenido> Publicaciones = new HashSet<>();
+    private static GestorContenido instancia;
 
     public GestorContenido() {
         Publicaciones = new HashSet<>();
+    }
+
+    public HashSet<Contenido> getPublicaciones(){
+        return this.Publicaciones;
+    }
+
+    public void setPublicaciones (HashSet<Contenido> Publicaciones){
+        this.Publicaciones = Publicaciones;
     }
 
     // public void crearContenido(String texto, String ruta, Usuario usuario,
@@ -49,19 +58,18 @@ public class GestorContenido {
 
     // }
 
-    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto ) {
-        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto);
+    public void crearContenidoTexto(String fechaPublicacion, Usuario usuario, String texto, Etiquetas etiqueta ) {
+        Contenido contenido = new ContenidoTexto(fechaPublicacion, usuario, texto, etiqueta);
         Publicaciones.add(contenido);
     }
 
-    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo) {
-        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo);
+    public void crearContenidoImagen(String fechaPublicacion, Usuario usuario, String archivo, String titulo, Etiquetas etiqueta) {
+        Contenido contenido = new ContenidoArchivo(fechaPublicacion, usuario, archivo, titulo, etiqueta);
         Publicaciones.add(contenido);
     }
 
-    public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo,
-            String texto) {
-        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo);
+    public void crearContenidoMixto(String fechaPublicacion, Usuario usuario, String archivo, String titulo, String texto, Etiquetas etiqueta) {
+        Contenido contenido = new ContenidoMixto(fechaPublicacion, usuario, texto, archivo, titulo, etiqueta);
         Publicaciones.add(contenido);
     }
 
@@ -70,6 +78,13 @@ public class GestorContenido {
             System.out.println(etiqueta);
         }
 
+    }
+
+    public static GestorContenido getInstancia() {
+        if (instancia == null) {
+            instancia = new GestorContenido();
+        }
+        return instancia;
     }
 
     public String mostrarContenido() {
