@@ -4,12 +4,8 @@ public class App {
 
     
     public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
-        
-=======
         System.out.println("Hello, World!");
         final Scanner sc = new Scanner(System.in);
->>>>>>> JoseManuel
 
         Usuario usuario1 = new Usuario(1, "Carlos", "sol123");
         Usuario usuario2 = new Usuario(2, "Ana", "luna456");
@@ -34,7 +30,6 @@ public class App {
         Usuario usuario21 = new Usuario(21, "Bruce", "12345");
 
         Terminal.menuInicial();
-        System.out.println(Terminal.menuInicial());
         GestorContenido gestorC = new GestorContenido();
 
         Contenido conten = new ContenidoTexto("12132131", usuario21, "hola");

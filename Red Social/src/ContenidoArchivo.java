@@ -12,18 +12,10 @@ public class ContenidoArchivo extends Contenido {
 
     @Override
     String mostrarSuperficial() {
-<<<<<<< HEAD
-        return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario() + "Titulo " /*+ getTitulo()*/; 
-=======
         return  "ID" + getCodigoPublicacion() + "Usuario" + getUsuario(); 
     }
 
-    @Override
-    public Iterator<Contenido> iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
->>>>>>> JoseManuel
-    }
+    
 
     
 
